@@ -1,0 +1,8 @@
+/* App.css – Minimal reset, actual styles are in index.css and component CSS files */
+
+.app-root {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}

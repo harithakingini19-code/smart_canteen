@@ -1,0 +1,140 @@
+/* ─── Smart Canteen – Global Design System ────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Light Theme (default) ── */
+:root,
+[data-theme="light"] {
+  --primary:        #16a34a;
+  --primary-dark:   #15803d;
+  --primary-light:  #dcfce7;
+  --primary-glow:   rgba(22, 163, 74, 0.18);
+
+  --bg:             #f1f5f1;
+  --surface:        #ffffff;
+  --surface-2:      #f8fafc;
+  --border:         #e2e8f0;
+  --border-strong:  #cbd5e1;
+
+  --text:           #1e293b;
+  --text-muted:     #64748b;
+  --text-light:     #94a3b8;
+  --text-on-green:  #ffffff;
+
+  --input-bg:       #ffffff;
+  --input-border:   #d1d5db;
+  --input-focus:    #16a34a;
+
+  --shadow-sm:  0 1px 3px rgba(0,0,0,0.08);
+  --shadow-md:  0 4px 16px rgba(0,0,0,0.10);
+  --shadow-lg:  0 10px 40px rgba(0,0,0,0.12);
+
+  --error:   #ef4444;
+  --warning: #f59e0b;
+  --success: #16a34a;
+
+  --radius-sm:  6px;
+  --radius-md:  10px;
+  --radius-lg:  16px;
+  --radius-xl:  24px;
+  --radius-full: 9999px;
+
+  --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Theme toggle */
+  --toggle-bg: rgba(22, 163, 74, 0.1);
+  --toggle-color: #16a34a;
+}
+
+/* ── Dark Theme ── */
+[data-theme="dark"] {
+  --primary:        #22c55e;
+  --primary-dark:   #16a34a;
+  --primary-light:  rgba(34, 197, 94, 0.15);
+  --primary-glow:   rgba(34, 197, 94, 0.20);
+
+  --bg:             #0f172a;
+  --surface:        #1e293b;
+  --surface-2:      #162032;
+  --border:         rgba(255,255,255,0.08);
+  --border-strong:  rgba(255,255,255,0.14);
+
+  --text:           #f1f5f9;
+  --text-muted:     #94a3b8;
+  --text-light:     #64748b;
+  --text-on-green:  #ffffff;
+
+  --input-bg:       rgba(15,23,42,0.7);
+  --input-border:   rgba(255,255,255,0.12);
+  --input-focus:    #22c55e;
+
+  --shadow-sm:  0 1px 3px rgba(0,0,0,0.3);
+  --shadow-md:  0 4px 16px rgba(0,0,0,0.4);
+  --shadow-lg:  0 10px 40px rgba(0,0,0,0.5);
+
+  --toggle-bg: rgba(34, 197, 94, 0.12);
+  --toggle-color: #22c55e;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-root {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Global input placeholder styling */
+input::placeholder, select::placeholder {
+  color: var(--text-light);
+  opacity: 0.7;
+}
+
+/* ── Shared: Theme Toggle Button ── */
+.theme-toggle-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--border);
+  background: var(--toggle-bg);
+  color: var(--toggle-color);
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.2s;
+  flex-shrink: 0;
+}
+.theme-toggle-btn:hover  { transform: scale(1.12) rotate(12deg); }
+.theme-toggle-btn:active { transform: scale(0.93); }
+
+/* ── Floating toggle (login/signup pages) ── */
+.page-theme-toggle {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: 999;
+}

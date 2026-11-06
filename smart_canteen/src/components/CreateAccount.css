@@ -1,0 +1,244 @@
+/* ════════════════════════════════════════════════
+   CreateAccount.css – Role Selection Page Styles
+   Mirrors the Signup.css split-panel layout exactly
+   ════════════════════════════════════════════════ */
+
+.create-account-page {
+  display: flex;
+  min-height: 100vh;
+  background: var(--bg, #f8fafc);
+  font-family: inherit;
+  position: relative;
+}
+
+/* ── Left green branding panel ── */
+.create-account-left {
+  width: 38%;
+  min-width: 280px;
+  background: linear-gradient(160deg, #16a34a 0%, #15803d 60%, #14532d 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 32px;
+  gap: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.create-account-left::before {
+  content: '';
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.07);
+  top: -80px;
+  right: -80px;
+}
+
+.create-account-left::after {
+  content: '';
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  bottom: -60px;
+  left: -60px;
+}
+
+.ca-brand {
+  text-align: center;
+}
+
+.ca-brand-logo {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: -0.5px;
+}
+
+.ca-brand-logo span {
+  color: #bbf7d0;
+}
+
+.ca-illustration {
+  font-size: 5rem;
+  filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.25));
+  animation: floatIllustration 3.5s ease-in-out infinite;
+}
+
+@keyframes floatIllustration {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-10px); }
+}
+
+.ca-left-caption {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.93rem;
+  text-align: center;
+  line-height: 1.6;
+  max-width: 220px;
+}
+
+/* ── Right panel ── */
+.create-account-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  overflow-y: auto;
+}
+
+.create-account-box {
+  width: 100%;
+  max-width: 480px;
+}
+
+.ca-heading {
+  font-size: 1.75rem;
+  font-weight: 900;
+  color: var(--text, #0f172a);
+  margin: 0 0 4px;
+  letter-spacing: -0.5px;
+}
+
+.ca-subheading {
+  color: var(--text-muted, #64748b);
+  font-size: 0.93rem;
+  margin: 0 0 28px;
+}
+
+/* ── Role Cards Grid ── */
+.ca-role-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+
+.ca-role-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 20px;
+  border-radius: 14px;
+  border: 1.5px solid var(--border, #e2e8f0);
+  background: var(--surface, #fff);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  text-align: left;
+  width: 100%;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.ca-role-card:hover {
+  border-color: #16a34a;
+  box-shadow: 0 4px 16px rgba(22, 163, 74, 0.12);
+  transform: translateY(-1px);
+}
+
+.ca-role-card:active {
+  transform: translateY(0);
+}
+
+.ca-role-icon {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+}
+
+.ca-role-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.ca-role-label {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text, #0f172a);
+}
+
+.ca-role-desc {
+  font-size: 0.8rem;
+  color: var(--text-muted, #64748b);
+  line-height: 1.4;
+}
+
+.ca-role-arrow {
+  font-size: 1.4rem;
+  color: var(--text-muted, #94a3b8);
+  font-weight: 300;
+  flex-shrink: 0;
+}
+
+/* ── Footer ── */
+.ca-footer {
+  text-align: center;
+  font-size: 0.88rem;
+  color: var(--text-muted, #64748b);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.ca-footer button {
+  background: none;
+  border: none;
+  color: var(--primary, #16a34a);
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 0.88rem;
+  font-family: inherit;
+  padding: 0;
+  transition: color 0.15s;
+}
+
+.ca-footer button:hover {
+  color: #15803d;
+  text-decoration: underline;
+}
+
+/* ── Dark theme overrides ── */
+[data-theme='dark'] .create-account-right {
+  background: var(--bg, #0f172a);
+}
+
+[data-theme='dark'] .create-account-box .ca-heading {
+  color: var(--text, #f1f5f9);
+}
+
+[data-theme='dark'] .ca-role-card {
+  background: var(--surface, #1e293b);
+  border-color: var(--border, #334155);
+}
+
+[data-theme='dark'] .ca-role-card:hover {
+  border-color: #16a34a;
+}
+
+[data-theme='dark'] .ca-role-label {
+  color: var(--text, #f1f5f9);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .create-account-left {
+    display: none;
+  }
+  .create-account-right {
+    padding: 24px 16px;
+  }
+}
